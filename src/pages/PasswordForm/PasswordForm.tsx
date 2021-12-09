@@ -51,11 +51,7 @@ const PasswordForm = () => {
         <Input.Password />
       </Form.Item>
 
-      <Form.Item
-        name="descricao"
-        label="Descrição"
-        rules={[{ required: true }]}
-      >
+      <Form.Item name="descricao" label="Descrição">
         <Input.TextArea showCount maxLength={250} />
       </Form.Item>
 
