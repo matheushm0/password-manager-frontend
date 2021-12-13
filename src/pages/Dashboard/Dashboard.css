@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 16px;
+
+  height: 48px;
+
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+}
+
+.sider {
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  z-index: 100;
+  top: 48px;
+}
+
+.content {
+  position: absolute;
+  height: 809px;
+  left: 232px;
+  right: 24px;
+  top: 74px;
+}

@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
-import PasswordList from "./pages/PasswordList/PasswordList";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 const App = () => {
-  return <PasswordList />;
+  return <Dashboard />;
 };
 
 export default App;
