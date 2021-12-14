@@ -1,15 +1,15 @@
 import React from "react";
 
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, message } from "antd";
 
 const formItemLayout = {
   labelCol: {
     xs: { span: 24 },
-    sm: { span: 8 },
+    sm: { span: 4 },
   },
   wrapperCol: {
     xs: { span: 24 },
-    sm: { span: 16 },
+    sm: { span: 20 },
   },
 };
 
@@ -21,16 +21,30 @@ const tailFormItemLayout = {
     },
     sm: {
       span: 16,
-      offset: 8,
+      offset: 4,
     },
   },
 };
 
-const PasswordForm = () => {
+type Props = {
+  formType: string;
+};
+
+const PasswordForm: React.FC<Props> = (props) => {
   const [form] = Form.useForm();
 
   const onFinish = (values: any) => {
-    console.log("*Add api post here* \n", values);
+    if (props.formType === "edit") {
+      console.log("*Add api put here* \n", values);
+      form.resetFields();
+      message.success("Dados editados com sucesso!");
+    }
+
+    if (props.formType === "new") {
+      console.log("*Add api post here* \n", values);
+      form.resetFields();
+      message.success("Senha adicionada com sucesso!");
+    }
   };
 
   return (
@@ -57,7 +71,7 @@ const PasswordForm = () => {
 
       <Form.Item {...tailFormItemLayout}>
         <Button type="primary" htmlType="submit">
-          Salvar
+          {props.formType === "new" ? "Cadastrar" : "Salvar"}
         </Button>
       </Form.Item>
     </Form>

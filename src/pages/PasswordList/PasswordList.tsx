@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { Card, Modal, Tooltip, Button } from "antd";
-import { EditOutlined, CopyOutlined } from "@ant-design/icons";
+import { EditOutlined, CopyOutlined, PlusOutlined } from "@ant-design/icons";
 
 import PasswordForm from "../PasswordForm/PasswordForm";
 
@@ -47,6 +47,7 @@ const userPasswords = [
 
 const PasswordList = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isAddModalVisible, setAddModalVisible] = useState(false);
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -54,6 +55,14 @@ const PasswordList = () => {
 
   const handleCancel = () => {
     setIsModalVisible(false);
+  };
+
+  const showAddModal = () => {
+    setAddModalVisible(true);
+  };
+
+  const handleCancelAdd = () => {
+    setAddModalVisible(false);
   };
 
   return (
@@ -73,7 +82,7 @@ const PasswordList = () => {
                   onCancel={handleCancel}
                   footer={null}
                 >
-                  <PasswordForm />
+                  <PasswordForm formType="edit" />
                 </Modal>
               </>,
               <Tooltip title="Copiar senha">
@@ -92,7 +101,17 @@ const PasswordList = () => {
         ))}
       </div>
       <div>
-        <Button>AASSA</Button>
+        <Button className="button" size="large" shape="circle">
+          <PlusOutlined style={{ fontSize: 28 }} onClick={showAddModal} />
+          <Modal
+            title="Adicionar nova senha"
+            visible={isAddModalVisible}
+            onCancel={handleCancelAdd}
+            footer={null}
+          >
+            <PasswordForm formType="new" />
+          </Modal>
+        </Button>
       </div>
     </>
   );

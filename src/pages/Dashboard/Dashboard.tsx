@@ -32,11 +32,13 @@ const Dashboard = () => {
                 </Menu.Item>
               </Menu>
             </Sider>
-            <Content className="content">
-              <Routes>
-                <Route path="/" element={<PasswordList />} />
-                <Route path="/gerar-senha" element={<PasswordGenerator />} />
-              </Routes>
+            <Content>
+              <div className="content">
+                <Routes>
+                  <Route path="/" element={<PasswordList />} />
+                  <Route path="/gerar-senha" element={<PasswordGenerator />} />
+                </Routes>
+              </div>
             </Content>
           </Layout>
         </Layout>
