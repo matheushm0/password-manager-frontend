@@ -1,13 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Form, Input, Button } from "antd";
 import { MailOutlined, LockOutlined } from "@ant-design/icons";
 
 const LoginForm = () => {
+  let navigate = useNavigate();
+
   const [form] = Form.useForm();
 
   const onFinish = (values: any) => {
     console.log("Received values of form: ", values);
+    navigate("/dashboard", { replace: true });
   };
 
   return (

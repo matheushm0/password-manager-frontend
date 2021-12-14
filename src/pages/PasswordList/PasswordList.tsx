@@ -67,7 +67,7 @@ const PasswordList = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="password-container">
         {userPasswords.map((userPassword, index) => (
           <Card
             title={userPassword.nome}
