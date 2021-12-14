@@ -1,13 +1,16 @@
 import React from "react";
+import { signup } from "../../api/Api";
 
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, message } from "antd";
 import { UserOutlined, MailOutlined, LockOutlined } from "@ant-design/icons";
 
 const RegisterForm = () => {
   const [form] = Form.useForm();
 
   const onFinish = (values: any) => {
-    console.log("*Add api post here* \n", values);
+    signup(values);
+    form.resetFields();
+    message.success("Usuario cadastrado com sucesso!");
   };
 
   return (

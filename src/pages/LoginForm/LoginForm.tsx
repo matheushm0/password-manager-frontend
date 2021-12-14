@@ -1,7 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { login } from "../../api/Api";
+import { ACCESS_TOKEN } from "../../consts";
 
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, message } from "antd";
 import { MailOutlined, LockOutlined } from "@ant-design/icons";
 
 const LoginForm = () => {
@@ -10,8 +12,14 @@ const LoginForm = () => {
   const [form] = Form.useForm();
 
   const onFinish = (values: any) => {
-    console.log("Received values of form: ", values);
-    navigate("/dashboard", { replace: true });
+    login(values)
+      .then((response) => {
+        localStorage.setItem(ACCESS_TOKEN, response.token);
+        navigate("/dashboard", { replace: true });
+      })
+      .catch((error) => {
+        message.error("Email ou senha incorreto");
+      });
   };
 
   return (
