@@ -1,26 +1,18 @@
 import React from "react";
 
 import { Form, Input, Button } from "antd";
-import { UserOutlined, MailOutlined, LockOutlined } from "@ant-design/icons";
+import { MailOutlined, LockOutlined } from "@ant-design/icons";
 
-const RegisterForm = () => {
+const LoginForm = () => {
   const [form] = Form.useForm();
 
   const onFinish = (values: any) => {
-    console.log("*Add api post here* \n", values);
+    console.log("Received values of form: ", values);
   };
 
   return (
-    <Form form={form} onFinish={onFinish}>
-      <Form.Item name="nome" rules={[{ required: true }]}>
-        <Input
-          size="large"
-          prefix={<UserOutlined style={{ color: "#1890FF" }} />}
-          placeholder="Nome"
-        />
-      </Form.Item>
-
-      <Form.Item name="email" rules={[{ required: true }]}>
+    <Form form={form} onFinish={onFinish} className="login-form">
+      <Form.Item name="username" rules={[{ required: true }]}>
         <Input
           size="large"
           prefix={<MailOutlined style={{ color: "#1890FF" }} />}
@@ -28,7 +20,7 @@ const RegisterForm = () => {
         />
       </Form.Item>
 
-      <Form.Item name="senha" rules={[{ required: true }]}>
+      <Form.Item name="password" rules={[{ required: true }]}>
         <Input
           size="large"
           prefix={<LockOutlined style={{ color: "#1890FF" }} />}
@@ -44,11 +36,11 @@ const RegisterForm = () => {
           className="login-form-button"
           block
         >
-          Cadastre-se
+          Entrar
         </Button>
       </Form.Item>
     </Form>
   );
 };
 
-export default RegisterForm;
+export default LoginForm;

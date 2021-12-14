@@ -1,0 +1,24 @@
+body {
+  background-color: #f0f2f5;
+  background-image: url("../../images/bg.png");
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+
+  font-weight: 900;
+  font-size: 33px;
+  line-height: 38px;
+}
+
+.container {
+  width: 360px;
+  height: 306px;
+
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -45%);
+}
